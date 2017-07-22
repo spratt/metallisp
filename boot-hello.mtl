@@ -5,22 +5,23 @@
 
 (label "start")
 (asm "cli")
-(asm "mov si, msg")
+(asm "mov si, msg")   ; Move the address of our message to the stack
 (asm "mov ah, 0x0e")
 (dir "loop")
-(asm "lodsb")
-(asm "or al, al")
-(asm "jz poweroff")
-(asm "int 0x10")
+(asm "lodsb")         ; Load the value pointed to by the stack into al
+(asm "or al, al")     ; Set the zero bit if al is zero
+(asm "jz poweroff")   ; If zero bit set, shut down
+(asm "int 0x10")      ; Otherwise, print
 (asm "jmp .loop")
 
+; Adapted from http://wiki.osdev.org/APM#Setting_Power_States
 (label "poweroff")
-(asm "mov ah, 0x53")
-(asm "mov al, 0x07")
-(asm "mov bx, 0x0001")
-(asm "mov cx, 0x03")
-(asm "int 0x15")
-(asm "jc halt")
+(asm "mov ax, 0x5307") ; Set the power state
+(asm "mov bx, 0x1")    ; on all devices
+(asm "mov cx, 0x3")    ; to off
+(asm "int 0x15")       ; go!
+(asm "jc halt")        ; If counter is set (and computer is still running)
+                       ; then we've failed, so just halt
 
 (label "halt")
 (asm "hlt")
