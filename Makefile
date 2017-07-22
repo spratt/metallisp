@@ -13,5 +13,8 @@ BINS=$(ASMS:%.asm=%.bin)
 
 all: ${BINS}
 
+run-bochs: ${BINS}
+	echo 6 | bochs
+
 clean: 
-	rm -f ${ASMS}
+	rm -f ${ASMS} bochsout.txt

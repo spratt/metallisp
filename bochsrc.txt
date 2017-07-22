@@ -1,0 +1,7 @@
+megs: 32
+romimage: file=/opt/local/share/bochs/BIOS-bochs-latest, address=0xfffe0000
+vgaromimage: file=/opt/local/share/bochs/VGABIOS-lgpl-latest
+floppya: 1_44=boot-hello.bin, status=inserted
+boot: a
+log: bochsout.txt
+mouse: enabled=0
