@@ -20,4 +20,4 @@ run-bochs: ${BIN}
 	echo 6 | bochs
 
 clean: 
-	rm -f ${ASM} bochsout.txt
+	rm -f ${ASM} ${BIN} bochsout.txt
