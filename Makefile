@@ -8,13 +8,16 @@
 	nasm -f bin $< -o $@
 
 SRC=boot-hello.mtl
-ASMS=$(SRC:%.mtl=%.asm)
-BINS=$(ASMS:%.asm=%.bin)
+ASM=$(SRC:%.mtl=%.asm)
+BIN=$(ASM:%.asm=%.bin)
 
-all: ${BINS}
+all: ${BIN}
 
-run-bochs: ${BINS}
+run-qemu: ${BIN}
+	qemu-system-x86_64 -drive format=raw,file=${BIN}
+
+run-bochs: ${BIN}
 	echo 6 | bochs
 
 clean: 
-	rm -f ${ASMS} bochsout.txt
+	rm -f ${ASM} bochsout.txt

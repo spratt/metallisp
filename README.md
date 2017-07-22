@@ -15,6 +15,10 @@ Required to build (listed versions are tested):
 * make 3.81
 * Racket 6.9
 * nasm 0.98.40
+
+And one of the following emulators:
+
+* qemu-system-x86_64 2.9.0
 * Bochs x86 Emulator 2.6.8
 
 Build
@@ -27,14 +31,26 @@ nasm -f bin boot-hello.asm -o boot-hello.bin
 rm boot-hello.asm
 ```
 
+Run on qemu
+-----------
+
+This will open a annoying window that will show the output and accept
+input.
+
+```
+$ make run-qemu
+```
+
 Run on Bochs
 ------------
+
+Just like with qemu, this will open a annoying window that will show
+the output and accept input.
 
 Note that you may have to edit the paths in `bochsrc.txt`.
 
 ```
 $ make run-bochs
-echo 6 | bochs
 ========================================================================
                        Bochs x86 Emulator 2.6.8
                 Built from SVN snapshot on May 3, 2015
