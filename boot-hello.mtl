@@ -1,5 +1,7 @@
 #!/usr/bin/env metal
 #lang racket
+; These lines are a comment and will be ignored.  The preceding lines
+; are also ignored.
 
 (label "start")
 (asm "cli")
