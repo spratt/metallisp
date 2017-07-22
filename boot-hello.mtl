@@ -17,7 +17,7 @@
 (label "poweroff")
 (asm "mov ah, 0x53")
 (asm "mov al, 0x07")
-(asm "mov bx, 0x0001h")
+(asm "mov bx, 0x0001")
 (asm "mov cx, 0x03")
 (asm "int 0x15")
 (asm "jc halt")
