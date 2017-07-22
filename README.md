@@ -6,10 +6,6 @@ A lisp -> assembly compiler designed to run on bare metal.
 * Author:  Simon David Pratt
 * License: MIT
 
-Resources:
-
-* http://blog.ackx.net/asm-hello-world-bootloader.html
-
 Required to build (listed versions are tested):
 
 * make 3.81

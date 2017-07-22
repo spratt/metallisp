@@ -3,6 +3,7 @@
 ; These lines are a comment and will be ignored.  The preceding lines
 ; are also ignored.
 
+; Adapted from http://blog.ackx.net/asm-hello-world-bootloader.html
 (label "start")
 (asm "cli")
 (asm "mov si, msg")   ; Move the address of our message to the stack
