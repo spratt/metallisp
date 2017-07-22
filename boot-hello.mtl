@@ -1,0 +1,19 @@
+#!/usr/bin/env metal
+#lang racket
+
+(label "start")
+(asm "cli")
+(asm "mov si, msg")
+(asm "mov ah, 0x0e")
+(dir "loop")
+(asm "lodsb")
+(asm "or al, al")
+(asm "jz halt")
+(asm "int 0x10")
+(asm "jmp .loop")
+
+(label "halt")
+(asm "hlt")
+
+(label "msg")
+(db "Hello, World!")
