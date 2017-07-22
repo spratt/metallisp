@@ -10,9 +10,17 @@
 (dir "loop")
 (asm "lodsb")
 (asm "or al, al")
-(asm "jz halt")
+(asm "jz poweroff")
 (asm "int 0x10")
 (asm "jmp .loop")
+
+(label "poweroff")
+(asm "mov ah, 0x53")
+(asm "mov al, 0x07")
+(asm "mov bx, 0x0001h")
+(asm "mov cx, 0x03")
+(asm "int 0x15")
+(asm "jc halt")
 
 (label "halt")
 (asm "hlt")
